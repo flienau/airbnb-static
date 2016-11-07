@@ -49,48 +49,26 @@ title: Le Wagon Middleman boilerplate
 </div>
 
 <!-- Your cards code -->
+
+
+
 <div class="grey-wrapped padded">
   <div class="container">
    <h2 class="text-center">Where Next?</h2>
    <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/card-paris.jpg');">
-        <div class="card-city">Paris</div>
+     <% data.flats.each do |owner, flat| %>
+     <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path flat.picture %>');">
+        <div class="card-city"><%=flat.city%></div>
         <div class="card-description">
-          <h2>Felix's Home</h2>
-          <p>Wine</p>
+        <h2><%=flat.owner_name%></h2>
+          <p><%=flat.summary%></p>
         </div>
-        <%= image_tag "images/seb.jpg", class: "card-user avatar avatar-large" %>
-        <%= link_to "Meet the team", "team.html", class: "card-link" %>
-        <a class="card-link" href="#"></a>
+        <%= image_tag flat.owner_picture, class: "card-owner avatar-large" %>
+        <%= link_to "#", "flats/#{owner}.html", class: "card-link" %>
       </div>
     </div>
-
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/card-brussels.jpeg');">
-        <div class="card-city">Brussels</div>
-        <div class="card-description">
-          <h2>Zoe's Home</h2>
-          <p>Beer</p>
-        </div>
-        <%= image_tag "images/seb.jpg", class: "card-user avatar avatar-large" %>
-        <%= link_to "Meet the team", "team.html", class: "card-link" %>
-        <a class="card-link" href="#"></a>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/card-london.jpeg');">
-        <div class="card-city">London</div>
-        <div class="card-description">
-          <h2>Duart's Home</h2>
-          <p>Sluts</p>
-        </div>
-        <%= image_tag "images/seb.jpg", class: "card-user avatar avatar-large" %>
-        <%= link_to "Meet the team", "team.html", class: "card-link" %>
-      </div>
-    </div>
-
+    <% end %>
   </div>
 </div>
 </div>

@@ -9,6 +9,12 @@
   position: relative;
 }
 
+.card-owner{
+  position: absolute;
+  top:5px;
+  right:5px;
+}
+
 .card:hover{
   opacity: 0.9;
 
